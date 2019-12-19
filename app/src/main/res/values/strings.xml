@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">DebuApp</string>
+    <string name="login">Login</string>
+    <string name="aamir_khan">Aamir khan</string>
+    <string name="number">Number</string>
+    <string name="send">Send</string>
+    <string name="verification">Verification</string>
+    <string name="enter_otp">Enter OTP</string>
+    <string name="submit">Submit</string>
+    <string name="bottomline">Don\'t Recived The code ?</string>
+    <string name="logout">Logout</string>
+    <string name="dashboard_activity">Dashboard Activity</string>
 </resources>
