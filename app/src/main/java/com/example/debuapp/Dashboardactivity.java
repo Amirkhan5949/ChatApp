@@ -51,7 +51,7 @@ public class Dashboardactivity extends AppCompatActivity {
                         return true;
 
                     case R.id.user:
-                        replace(new Userfragment());
+                        replace(new AlluserFragment());
                         return true;
 
 

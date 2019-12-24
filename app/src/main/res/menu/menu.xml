@@ -6,7 +6,7 @@
      android:title="Chat"/>
 
     <item
-        android:title="Users List"
+        android:title="All Users"
         android:icon="@drawable/user"
         android:id="@+id/user"/>
     <item
