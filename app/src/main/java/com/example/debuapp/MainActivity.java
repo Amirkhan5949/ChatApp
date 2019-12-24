@@ -19,11 +19,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 if (FirebaseAuth.getInstance().getCurrentUser()==null){
-                startActivity(new Intent(MainActivity.this,loginActivity.class));
+                startActivity(new Intent(MainActivity.this, Loginactivity.class));
                 finish();
                 }
                 else{
-                    startActivity(new Intent(MainActivity.this,dashboardActivity.class));
+                    startActivity(new Intent(MainActivity.this,Dashboardactivity.class));
                     finish();
 
                 }

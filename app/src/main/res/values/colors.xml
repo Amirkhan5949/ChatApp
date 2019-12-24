@@ -11,4 +11,5 @@
 
 
     <color name="transparent">#00D81B60</color>
+    <color name="midBlack">#A3000000</color>
 </resources>

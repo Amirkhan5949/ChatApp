@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import com.hbb20.CountryCodePicker;
 
-public class loginActivity extends AppCompatActivity {
+public class Loginactivity extends AppCompatActivity {
     private EditText number;
     private Button send;
     private CountryCodePicker cpp;
@@ -32,13 +32,13 @@ public class loginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (TextUtils.isEmpty(number.getText().toString())){
-                    Toast.makeText(loginActivity.this, "Enter your no", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Loginactivity.this, "Enter your no", Toast.LENGTH_SHORT).show();
                 }
                 else if (number.getText().toString().replace(" ","").length()!=10){
-                    Toast.makeText(loginActivity.this, "Enter correct no", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Loginactivity.this, "Enter correct no", Toast.LENGTH_SHORT).show();
                 }
                 else {
-                   Intent intent= new Intent(loginActivity.this,phoneVerificationActivity.class);
+                   Intent intent= new Intent(Loginactivity.this,PhoneverificationActivity.class);
                    intent.putExtra("number",cpp.getFullNumberWithPlus().replace("",""));
                    startActivity(intent);
                    finish();

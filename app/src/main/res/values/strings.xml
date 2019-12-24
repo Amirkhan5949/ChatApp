@@ -6,7 +6,6 @@
     <string name="send">Send</string>
     <string name="verification">Verification</string>
     <string name="enter_otp">Enter OTP</string>
-    <string name="submit">Submit</string>
     <string name="bottomline">Don\'t Recived The code ?</string>
     <string name="logout">Logout</string>
     <string name="dashboard_activity">Dashboard Activity</string>
@@ -16,4 +15,11 @@
     <string name="chat_is_on">chat is on</string>
     <string name="open">open</string>
     <string name="close">close</string>
+
+    <string name="submit">Submit</string>
+    <string name="User">user</string>
+    <string name="Email_id">email id</string>
+    <string name="Address">address</string>
+    <string name="user_s_list">user\'s list</string>
+    <string name="loader">Welcome to my app</string>
 </resources>

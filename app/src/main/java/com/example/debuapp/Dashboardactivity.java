@@ -18,7 +18,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 
-public class dashboardActivity extends AppCompatActivity {
+public class Dashboardactivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     BottomNavigationView bottomNavigationView;
@@ -47,17 +47,17 @@ public class dashboardActivity extends AppCompatActivity {
                 switch (item.getItemId()){
 
                     case R.id.chat:
-                        replace(new chatFragment());
+                        replace(new Chatfragment());
                         return true;
 
                     case R.id.user:
-                        replace(new userFragment());
+                        replace(new Userfragment());
                         return true;
 
 
                     case R.id.logout:
                         FirebaseAuth.getInstance().signOut();
-                        startActivity(new Intent(dashboardActivity.this,loginActivity.class));
+                        startActivity(new Intent(Dashboardactivity.this, Loginactivity.class));
                         finish();
 
 

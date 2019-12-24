@@ -25,10 +25,14 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.concurrent.TimeUnit;
 
-public class phoneVerificationActivity extends AppCompatActivity {
+public class PhoneverificationActivity extends AppCompatActivity {
     private EditText otp;
     private Button submit;
     private TextView resend,text;
@@ -61,16 +65,17 @@ public class phoneVerificationActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (TextUtils.isEmpty(otp.getText().toString())){
-                    Toast.makeText(phoneVerificationActivity.this, "enter otp", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PhoneverificationActivity.this, "enter otp", Toast.LENGTH_SHORT).show();
                 }
                 else if (otp.getText().toString().replace(" ","").length()!=6){
 
-                    Toast.makeText(phoneVerificationActivity.this, "enter right", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PhoneverificationActivity.this, "enter right", Toast.LENGTH_SHORT).show();
                 }
                 else {
                     loader.show();
                     PhoneAuthCredential credential = PhoneAuthProvider.getCredential(id, otp.getText().toString().replace("",""));
                     signInWithPhoneAuthCredential(credential);
+
                 }
             }
         });
@@ -110,7 +115,7 @@ public class phoneVerificationActivity extends AppCompatActivity {
                 new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
                     @Override
                     public void onCodeSent(@NonNull String id, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
-                         phoneVerificationActivity.this.id=id;
+                        PhoneverificationActivity.this.id=id;
                     }
 
                     @Override
@@ -120,7 +125,8 @@ public class phoneVerificationActivity extends AppCompatActivity {
 
                     @Override
                     public void onVerificationFailed(@NonNull FirebaseException e) {
-                         Toast.makeText(phoneVerificationActivity.this, "Verification failed", Toast.LENGTH_SHORT).show();
+                        Log.i("Aamir", "onVerificationFailed: "+e.getMessage());
+                         Toast.makeText(PhoneverificationActivity.this, "Verification failed "+e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
     }
@@ -132,13 +138,31 @@ public class phoneVerificationActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             loader.dismiss();
-                            startActivity(new Intent(phoneVerificationActivity.this,dashboardActivity.class));
-                             finish();
                             FirebaseUser user = task.getResult().getUser();
+
+                            FirebaseDatabase.getInstance().getReference().child("User").addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                    if (dataSnapshot.hasChild(FirebaseAuth.getInstance().getUid())){
+                                        startActivity((new Intent(PhoneverificationActivity.this,Dashboardactivity.class)));
+                                        finish();
+                                    }
+                                    else{
+                                        startActivity(new Intent(PhoneverificationActivity.this,Registeractivity.class));
+                                        finish();
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                }
+                            });
                             // ...
                         } else {
                             loader.dismiss();
-                            Toast.makeText(phoneVerificationActivity.this, "verification failrd", Toast.LENGTH_SHORT).show();
+                            Log.i("mayank", "onComplete: "+task.getException().getMessage());
+                            Toast.makeText(PhoneverificationActivity.this, "verification failrd", Toast.LENGTH_SHORT).show();
 
                         }
                     }
@@ -147,3 +171,25 @@ public class phoneVerificationActivity extends AppCompatActivity {
 
 
 }
+
+
+//
+// FirebaseDatabase.getInstance().getReference().child("User")
+//         .addListenerForSingleValueEvent(new ValueEventListener() {
+//@Override
+//public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//        if(dataSnapshot.hasChild(FirebaseAuth.getInstance().getUid())){
+//        startActivity(new Intent(PhoneverificationActivity.this,Dashboardactivity.class));
+//        finish();
+//        }
+//        else {
+//        startActivity(new Intent(PhoneverificationActivity.this,Registeractivity.class));
+//        finish();
+//        }
+//        }
+//
+//@Override
+//public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//        }
+//        });

@@ -12,10 +12,10 @@ import androidx.fragment.app.Fragment;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class chatFragment extends Fragment {
+public class Chatfragment extends Fragment {
 
 
-    public chatFragment() {
+    public Chatfragment() {
         // Required empty public constructor
     }
 
