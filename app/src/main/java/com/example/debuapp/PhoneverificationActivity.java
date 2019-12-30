@@ -80,6 +80,7 @@ public class PhoneverificationActivity extends AppCompatActivity {
             }
         });
 
+
         resend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -148,8 +149,12 @@ public class PhoneverificationActivity extends AppCompatActivity {
                                         finish();
                                     }
                                     else{
-                                        startActivity(new Intent(PhoneverificationActivity.this,Registeractivity.class));
+
+                                        Intent intent=new Intent(PhoneverificationActivity.this,Registeractivity.class);
+                                        intent.putExtra("number",number);
+                                        startActivity(intent);
                                         finish();
+
                                     }
                                 }
 
@@ -172,24 +177,3 @@ public class PhoneverificationActivity extends AppCompatActivity {
 
 }
 
-
-//
-// FirebaseDatabase.getInstance().getReference().child("User")
-//         .addListenerForSingleValueEvent(new ValueEventListener() {
-//@Override
-//public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//        if(dataSnapshot.hasChild(FirebaseAuth.getInstance().getUid())){
-//        startActivity(new Intent(PhoneverificationActivity.this,Dashboardactivity.class));
-//        finish();
-//        }
-//        else {
-//        startActivity(new Intent(PhoneverificationActivity.this,Registeractivity.class));
-//        finish();
-//        }
-//        }
-//
-//@Override
-//public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//        }
-//        });

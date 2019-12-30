@@ -13,4 +13,8 @@
         android:id="@+id/logout"
         android:title="logout"
         android:icon="@drawable/power"/>
+    <item
+        android:id="@+id/image"
+        android:title="@string/image_picker"
+        android:icon="@drawable/image"/>
 </menu>

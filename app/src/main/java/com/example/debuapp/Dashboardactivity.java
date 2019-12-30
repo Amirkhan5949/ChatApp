@@ -9,6 +9,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.List;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -54,11 +56,16 @@ public class Dashboardactivity extends AppCompatActivity {
                         replace(new AlluserFragment());
                         return true;
 
+                    case R.id.image:
+                        replace(new ImageFragment());
+                        return true;
+
 
                     case R.id.logout:
                         FirebaseAuth.getInstance().signOut();
                         startActivity(new Intent(Dashboardactivity.this, Loginactivity.class));
                         finish();
+
 
 
                     default:
@@ -91,6 +98,19 @@ public class Dashboardactivity extends AppCompatActivity {
         }
         else {
             super.onBackPressed();
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        List<Fragment> fragments = getSupportFragmentManager().getFragments();
+        if (fragments != null) {
+            for (Fragment f : fragments) {
+                if (f instanceof ImageFragment) {
+                    f.onActivityResult(requestCode, resultCode, data);
+                }
+            }
         }
     }
 

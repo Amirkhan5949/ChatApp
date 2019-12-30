@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.debuapp.utils.FirebaseConstants;
@@ -27,6 +28,7 @@ public class Registeractivity extends AppCompatActivity {
     private EditText user,email,address;
     private DatabaseReference User;
     private Button submit;
+    private String number;
 
 
     @Override
@@ -39,6 +41,10 @@ public class Registeractivity extends AppCompatActivity {
         address=findViewById(R.id.address);
         submit=findViewById(R.id.submit);
 
+
+
+        number=getIntent().getStringExtra("number");
+
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -49,6 +55,8 @@ public class Registeractivity extends AppCompatActivity {
                 map.put(FirebaseConstants.User.user,user.getText().toString());
                 map.put(FirebaseConstants.User.email,email.getText().toString());
                 map.put(FirebaseConstants.User.address,address.getText().toString());
+                map.put(FirebaseConstants.User.number,number);
+
 
 
 

@@ -7,7 +7,7 @@ import com.example.debuapp.R;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.ViewHolder;
 
-public class Loader {
+public class  Loader {
     DialogPlus dialogPlus;
     Context context;
 

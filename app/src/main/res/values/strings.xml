@@ -22,4 +22,10 @@
     <string name="Address">address</string>
     <string name="user_s_list">user\'s list</string>
     <string name="loader">Welcome to my app</string>
+    <string name="image_picker">Image Picker</string>
+    <string name="upload">Upload</string>
+    <string name="mobile_no">Mobile No :</string>
+    <string name="name">Name :</string>
+    <string name="email">Email :</string>
+    <string name="address">Address :</string>
 </resources>

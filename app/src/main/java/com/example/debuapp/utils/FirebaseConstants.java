@@ -7,6 +7,7 @@ public class FirebaseConstants {
         public static String email = "email";
         public static  String address="address";
         public static  String user="user";
+        public static   String number="number";
     }
 
 }
