@@ -1,13 +1,19 @@
 package com.example.debuapp;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
+import com.example.NewActivity;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -25,6 +31,7 @@ public class AlluserFragment extends Fragment {
 
 
 
+
     public AlluserFragment() {
         // Required empty public constructor
     }
@@ -39,12 +46,17 @@ public class AlluserFragment extends Fragment {
         recyclerView=view.findViewById(R.id.recycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
+
+
+
+
+
         FirebaseRecyclerOptions<User> options =
                 new FirebaseRecyclerOptions.Builder<User>()
                         .setQuery(FirebaseDatabase.getInstance().getReference().child("User"), User.class)
                         .build();
 
-          useradapter=new Useradapter(options);
+          useradapter=new Useradapter(getContext(),options);
           recyclerView.setAdapter(useradapter);
 
         return view;

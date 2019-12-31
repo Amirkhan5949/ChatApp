@@ -57,7 +57,7 @@ public class Dashboardactivity extends AppCompatActivity {
                         return true;
 
                     case R.id.image:
-                        replace(new ImageFragment());
+                        replace(new ProfileFragment());
                         return true;
 
 
@@ -107,7 +107,7 @@ public class Dashboardactivity extends AppCompatActivity {
         List<Fragment> fragments = getSupportFragmentManager().getFragments();
         if (fragments != null) {
             for (Fragment f : fragments) {
-                if (f instanceof ImageFragment) {
+                if (f instanceof ProfileFragment) {
                     f.onActivityResult(requestCode, resultCode, data);
                 }
             }
