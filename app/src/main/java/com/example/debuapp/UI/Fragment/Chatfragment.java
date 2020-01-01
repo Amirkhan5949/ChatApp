@@ -1,10 +1,12 @@
-package com.example.debuapp;
+package com.example.debuapp.UI.Fragment;
 
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.debuapp.R;
 
 import androidx.fragment.app.Fragment;
 

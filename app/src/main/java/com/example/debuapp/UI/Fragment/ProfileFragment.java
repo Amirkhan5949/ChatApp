@@ -1,4 +1,4 @@
-package com.example.debuapp;
+package com.example.debuapp.UI.Fragment;
 
 
 import android.content.Context;
@@ -25,6 +25,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.debuapp.R;
 import com.example.debuapp.utils.FirebaseConstants;
 import com.example.debuapp.utils.Loader;
 import com.google.android.gms.tasks.OnCompleteListener;

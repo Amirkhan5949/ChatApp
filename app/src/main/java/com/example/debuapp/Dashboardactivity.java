@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 
+import com.example.debuapp.UI.Fragment.AlluserFragment;
+import com.example.debuapp.UI.Fragment.Chatfragment;
+import com.example.debuapp.UI.Fragment.ProfileFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;

@@ -1,19 +1,16 @@
-package com.example.debuapp;
+package com.example.debuapp.UI.Fragment;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
-import com.example.NewActivity;
+import com.example.debuapp.R;
+import com.example.Model.User;
+import com.example.debuapp.Useradapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -27,7 +24,7 @@ public class AlluserFragment extends Fragment {
 
     private RecyclerView recyclerView;
     private View view;
-    private  Useradapter useradapter;
+    private Useradapter useradapter;
 
 
 

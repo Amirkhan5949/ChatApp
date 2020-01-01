@@ -1,4 +1,4 @@
-package com.example.debuapp;
+package com.example.Model;
 
 public class User {
     String address;

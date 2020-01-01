@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.example.AlluserFragment.utils.Common;
 import com.example.ImageActivity;
+import com.example.Model.User;
 import com.example.NewActivity;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;

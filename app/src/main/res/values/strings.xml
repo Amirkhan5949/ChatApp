@@ -28,4 +28,6 @@
     <string name="name">Name :</string>
     <string name="email">Email :</string>
     <string name="address">Address :</string>
+    <string name="message">message</string>
+    <string name="status">status</string>
 </resources>

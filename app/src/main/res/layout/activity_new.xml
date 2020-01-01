@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:background="@color/colorPrimary"
 
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -10,27 +10,46 @@
     android:layout_height="match_parent"
     tools:context="com.example.NewActivity">
 
-    <EditText
-        android:layout_gravity="bottom"
-        android:layout_marginRight="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginBottom="8dp"
-        android:layout_width="0dp"
-        android:layout_weight="3"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:layout_height="40dp"
-        android:hint="Type a message"
-        android:textSize="18sp"
-        android:background="@drawable/backgroungwhite"
-        />
-    <ImageView
-        android:layout_marginBottom="15dp"
-        android:layout_marginRight="10dp"
-        android:layout_gravity="bottom"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:src="@drawable/sending"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="7"
+        android:id="@+id/recycler"/>
+
+    <LinearLayout
+        android:gravity="bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/edit"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:layout_height="40dp"
+            android:hint="Type a message"
+            android:textSize="22sp"
+            android:background="@drawable/backgroungwhite"
+            />
+        <ImageView
+            android:id="@+id/image"
+            android:layout_marginBottom="15dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/sending"/>
+
+
+
+    </LinearLayout>
+
 
 
 </LinearLayout>
