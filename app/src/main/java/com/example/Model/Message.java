@@ -3,18 +3,11 @@ package com.example.Model;
 public class Message {
 
     String message;
-    String status;
+     Boolean status ;
 
     public Message() {
     }
 
-    @Override
-    public String toString() {
-        return "Message{" +
-                "message='" + message + '\'' +
-                ", status='" + status + '\'' +
-                '}';
-    }
 
     public String getMessage() {
         return message;
@@ -24,11 +17,11 @@ public class Message {
         this.message = message;
     }
 
-    public String getStatus() {
+    public Boolean getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Boolean status) {
         this.status = status;
     }
 }

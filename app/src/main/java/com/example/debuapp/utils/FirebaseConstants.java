@@ -10,4 +10,17 @@ public class FirebaseConstants {
         public static   String number="number";
     }
 
+    public static class Message{
+        public static String key = "Message";
+        public static String status = "status";
+        public static String message = "message";
+        public static String type = "type";
+
+        public static enum  Type{
+            RECEIVE,SEND
+        }
+    }
+
+
+
 }
