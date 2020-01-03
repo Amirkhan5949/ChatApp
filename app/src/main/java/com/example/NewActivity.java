@@ -75,6 +75,7 @@ public class NewActivity extends AppCompatActivity {
 
 
 
+
                 base.child(FirebaseAuth.getInstance().getUid()).child(s)
                         .push().setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override

@@ -4,6 +4,8 @@ public class Message {
 
     String message;
      Boolean status ;
+     String type;
+
 
     public Message() {
     }
@@ -24,4 +26,7 @@ public class Message {
     public void setStatus(Boolean status) {
         this.status = status;
     }
+
+    public String getType(){ return type;}
+    public void setType(String type){ this.type=type;}
 }

@@ -36,6 +36,19 @@ public class MessageAdapter extends FirebaseRecyclerAdapter<Message, MessageAdap
         holder.send.setText(model.getMessage());
         holder.recieve.setText(model.getMessage());
 
+
+        if (model.getType().equals(FirebaseConstants.Message.Type.SEND)){
+            holder.send.setText(holder.send.getText().toString());
+            holder.recieve.setVisibility(View.GONE);
+            holder.send.setVisibility(View.VISIBLE);
+
+        }
+        else {
+            holder.recieve.setText((holder.recieve.getText().toString()));
+            holder.send.setVisibility(View.GONE);
+            holder.recieve.setVisibility(View.VISIBLE);
+        }
+
     }
 
     @NonNull
