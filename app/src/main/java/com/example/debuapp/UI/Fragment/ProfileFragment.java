@@ -376,6 +376,27 @@ public class ProfileFragment extends Fragment {
                     public void onSuccess(Uri uri) {
                         imageView.setImageURI(null);
                         Picasso.get().load(uri).into(imageView);
+                        Log.i("ohk", "onSuccess: "+uri.toString());
+
+                        HashMap<String,Object>map=new HashMap<>();
+                        map.put(FirebaseConstants.User.image,uri.toString());
+
+
+                        FirebaseDatabase.getInstance().getReference().child(FirebaseConstants.User.user).child(FirebaseAuth.getInstance().getUid())
+                                .updateChildren(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                Log.i("dokokjne", "onSuccess: ");
+
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Log.i("fakjiujiil", "onFailure: "+e.getMessage());
+                            }
+                        });
+
+
 
 
 
@@ -403,6 +424,10 @@ public class ProfileFragment extends Fragment {
 
                         String add="Address :"+dataSnapshot.child(FirebaseConstants.User.address).getValue(String.class);
                         address.setText(add);
+
+                        String image=dataSnapshot.child(FirebaseConstants.User.image).getValue(String.class);
+                        Picasso.get().load(image).into(imageView);
+                        Log.i("asadadd", "onDataChange: "+image);
 
                     }
 

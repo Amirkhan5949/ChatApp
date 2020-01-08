@@ -1,6 +1,8 @@
 package com.example.debuapp.utils;
 
+import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,21 +35,28 @@ public class MessageAdapter extends FirebaseRecyclerAdapter<Message, MessageAdap
     @Override
     protected void onBindViewHolder(@NonNull MessageViewHolder holder, int position, @NonNull Message model) {
 
-        holder.send.setText(model.getMessage());
-        holder.recieve.setText(model.getMessage());
 
 
-        if (model.getType().equals(FirebaseConstants.Message.Type.SEND)){
-            holder.send.setText(holder.send.getText().toString());
+        if (model.getType().equals("SEND")){
+            Log.i("askjbda", "onBindViewHolder: SEND");
+            holder.send.setText(model.getMessage());
+
+
             holder.recieve.setVisibility(View.GONE);
             holder.send.setVisibility(View.VISIBLE);
 
+
+
         }
+
         else {
-            holder.recieve.setText((holder.recieve.getText().toString()));
+            Log.i("askjbda", "onBindViewHolder: recieve");
+            holder.recieve.setText((model.getMessage()));
             holder.send.setVisibility(View.GONE);
             holder.recieve.setVisibility(View.VISIBLE);
         }
+
+
 
     }
 

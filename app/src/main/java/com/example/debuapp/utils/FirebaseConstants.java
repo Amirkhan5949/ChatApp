@@ -8,6 +8,7 @@ public class FirebaseConstants {
         public static  String address="address";
         public static  String user="user";
         public static   String number="number";
+        public static  String image="image";
     }
 
     public static class Message{

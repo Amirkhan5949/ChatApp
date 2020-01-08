@@ -44,7 +44,9 @@ public class NewActivity extends AppCompatActivity {
         final DatabaseReference base =FirebaseDatabase.getInstance().getReference().child(FirebaseConstants.Message.key);
         final String s=getIntent().getStringExtra("id");
 
-        recycler.setLayoutManager(new LinearLayoutManager(this));
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        layoutManager.setStackFromEnd(true);
+        recycler.setLayoutManager(layoutManager);
 
         Query query = base.child(FirebaseAuth.getInstance().getUid()).child(s);
 
@@ -87,6 +89,9 @@ public class NewActivity extends AppCompatActivity {
                         base.child(s).child(FirebaseAuth.getInstance().getUid()).push().setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
+                                edit.setText("");
+
+                                recycler.smoothScrollToPosition(adapter.getItemCount() - 1);
                                 Toast.makeText(NewActivity.this, "success", Toast.LENGTH_SHORT).show();
                             }
                         });
@@ -107,6 +112,7 @@ public class NewActivity extends AppCompatActivity {
 
 
     }
+
     public void onStart() {
         super.onStart();
         adapter.startListening();

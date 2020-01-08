@@ -31,4 +31,6 @@
     <string name="message">message</string>
     <string name="status">status</string>
     <string name="type">type</string>
+    <string name="sttus">Status :</string>
+    <string name="usrnme">Username :</string>
 </resources>

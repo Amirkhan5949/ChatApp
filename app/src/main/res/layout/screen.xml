@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
+
     android:layout_margin="5dp"
     android:id="@+id/layout"
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -10,25 +11,33 @@
 
 
     <TextView
+        android:background="@drawable/recievebackground"
         android:layout_margin="10dp"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/recieve"
         android:text="Anas"
+        android:paddingLeft="20dp"
+        android:paddingRight="50dp"
+        android:paddingBottom="5dp"
         android:textSize="24sp"
         android:textColor="@color/white"
         />
 
 
     <TextView
+        android:background="@drawable/sendbackground"
         android:layout_margin="10dp"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/send"
         android:text="Aamir"
-        android:textColor="@color/white"
+        android:textColor="#9F000000"
         android:textSize="24sp"
-        android:gravity="end"
+        android:paddingRight="50dp"
+        android:paddingLeft="20dp"
+        android:paddingBottom="5dp"
+        android:layout_gravity="end"
 
 
 

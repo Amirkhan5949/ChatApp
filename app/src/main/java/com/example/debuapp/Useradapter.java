@@ -26,19 +26,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Useradapter  extends FirebaseRecyclerAdapter<User, Useradapter.UserviewHolder> {
+
+
+
+
     Context context;
 
 
-    /**
-     * Initialize a {@link RecyclerView.Adapter} that listens to a Firebase query. See
-     * {@link FirebaseRecyclerOptions} for configuration options.
-     *
-     * @param options
-     */
+
     public Useradapter(Context context,@NonNull FirebaseRecyclerOptions<User> options) {
         super(options);
-        this.context=context;
 
+        this.context = context;
     }
 
     @Override
