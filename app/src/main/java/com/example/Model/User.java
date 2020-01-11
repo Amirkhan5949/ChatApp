@@ -4,6 +4,7 @@ public class User {
     String address;
     String email;
     String user;
+    String image;
 
     public User() {
     }
@@ -14,9 +15,9 @@ public class User {
                 "address='" + address + '\'' +
                 ", email='" + email + '\'' +
                 ", user='" + user + '\'' +
+                ", image='" + image + '\'' +
                 '}';
     }
-
 
     public String getAddress() {
         return address;
@@ -41,4 +42,14 @@ public class User {
     public void setUser(String user) {
         this.user = user;
     }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 }
+
+

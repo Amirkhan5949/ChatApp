@@ -1,4 +1,4 @@
-package com.example.debuapp;
+package com.example.debuapp.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,9 +9,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.debuapp.R;
 import com.example.debuapp.utils.FirebaseConstants;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -60,7 +60,7 @@ public class Registeractivity extends AppCompatActivity {
 
 
 
-                FirebaseDatabase.getInstance().getReference().child("User").child(FirebaseAuth.getInstance().getUid())
+                User.child(FirebaseAuth.getInstance().getUid())
                         .setValue(map)
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override

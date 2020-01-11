@@ -1,4 +1,4 @@
-package com.example.debuapp;
+package com.example.debuapp.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.debuapp.R;
 import com.hbb20.CountryCodePicker;
 
 public class Loginactivity extends AppCompatActivity {

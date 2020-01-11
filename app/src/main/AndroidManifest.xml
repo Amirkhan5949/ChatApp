@@ -9,24 +9,23 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.example.NewActivity"></activity>
-        <activity android:name="com.example.ImageActivity" />
-        <activity android:name=".imageActivity" />
-        <activity android:name=".ImagepickerActivity" />
+        <activity android:name=".Activities.ChatActivity"></activity>
+        <activity android:name=".Activities.ImageActivity" />
+
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".Registeractivity" />
-        <activity android:name=".PhoneverificationActivity" />
-        <activity android:name=".Dashboardactivity" />
-        <activity android:name=".Loginactivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".Activities.Registeractivity" />
+        <activity android:name=".Activities.PhoneverificationActivity" />
+        <activity android:name=".Activities.Dashboardactivity" />
+        <activity android:name=".Activities.Loginactivity" />
+        <activity android:name=".Activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

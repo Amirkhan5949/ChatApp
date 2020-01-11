@@ -1,10 +1,11 @@
-package com.example.debuapp;
+package com.example.debuapp.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 
+import com.example.debuapp.R;
 import com.example.debuapp.UI.Fragment.AlluserFragment;
 import com.example.debuapp.UI.Fragment.Chatfragment;
 import com.example.debuapp.UI.Fragment.ProfileFragment;
@@ -26,7 +27,6 @@ import androidx.fragment.app.FragmentTransaction;
 public class Dashboardactivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     NavigationView navigationView;
-    BottomNavigationView bottomNavigationView;
     ActionBarDrawerToggle toggle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +43,7 @@ public class Dashboardactivity extends AppCompatActivity {
         toggle.syncState();
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        replace(new Chatfragment(),"Chatfragment");
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -52,15 +53,15 @@ public class Dashboardactivity extends AppCompatActivity {
                 switch (item.getItemId()){
 
                     case R.id.chat:
-                        replace(new Chatfragment());
+                        replace(new Chatfragment(),"Chatfragment");
                         return true;
 
                     case R.id.user:
-                        replace(new AlluserFragment());
+                        replace(new AlluserFragment(),"AlluserFragment");
                         return true;
 
                     case R.id.image:
-                        replace(new ProfileFragment());
+                        replace(new ProfileFragment(FirebaseAuth.getInstance().getUid()),"ProfileFragment");
                         return true;
 
 
@@ -90,9 +91,10 @@ public class Dashboardactivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    void replace(Fragment fragment) {
+    void replace(Fragment fragment,String tag) {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.framelayout, fragment);
+        fragmentTransaction.addToBackStack(tag);
         fragmentTransaction.commit();
     }
     public void onBackPressed(){

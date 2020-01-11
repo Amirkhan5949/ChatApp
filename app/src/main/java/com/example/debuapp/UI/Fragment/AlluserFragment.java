@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 
 import com.example.debuapp.R;
 import com.example.Model.User;
-import com.example.debuapp.Useradapter;
+import com.example.debuapp.Adapters.Useradapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -43,17 +43,12 @@ public class AlluserFragment extends Fragment {
         recyclerView=view.findViewById(R.id.recycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-
-
-
-
-
         FirebaseRecyclerOptions<User> options =
                 new FirebaseRecyclerOptions.Builder<User>()
                         .setQuery(FirebaseDatabase.getInstance().getReference().child("User"), User.class)
                         .build();
 
-          useradapter=new Useradapter(getContext(),options);
+          useradapter=new Useradapter(getContext(),options,getFragmentManager());
           recyclerView.setAdapter(useradapter);
 
         return view;

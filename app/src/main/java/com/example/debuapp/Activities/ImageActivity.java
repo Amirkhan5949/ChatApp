@@ -1,4 +1,4 @@
-package com.example;
+package com.example.debuapp.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 

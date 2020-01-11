@@ -8,39 +8,90 @@
     android:layout_height="wrap_content">
 
 
-
-
-    <TextView
-        android:background="@drawable/recievebackground"
-        android:layout_margin="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <LinearLayout
         android:id="@+id/recieve"
-        android:text="Anas"
-        android:paddingLeft="20dp"
-        android:paddingRight="50dp"
-        android:paddingBottom="5dp"
-        android:textSize="24sp"
-        android:textColor="@color/white"
-        />
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/recieve_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@drawable/sendbackground"
+            android:gravity="bottom"
+            android:textColor="#9F000000"
+            android:textSize="14sp" />
 
 
-    <TextView
-        android:background="@drawable/sendbackground"
-        android:layout_margin="10dp"
+        <TextView
+            android:background="@drawable/recievebackground"
+            android:layout_margin="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/recieveText"
+            android:text="Anas"
+            android:paddingLeft="20dp"
+            android:paddingRight="50dp"
+            android:paddingBottom="5dp"
+            android:textSize="24sp"
+            android:textColor="@color/white"
+            />
+
+
+    </LinearLayout>
+
+
+
+
+
+    <LinearLayout
+        android:id="@+id/send"
+        android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/send"
-        android:text="Aamir"
-        android:textColor="#9F000000"
-        android:textSize="24sp"
-        android:paddingRight="50dp"
-        android:paddingLeft="20dp"
-        android:paddingBottom="5dp"
-        android:layout_gravity="end"
+        android:layout_gravity="right">
+
+        <TextView
+            android:background="@drawable/sendbackground"
+            android:layout_margin="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Aamir"
+            android:textColor="#9F000000"
+            android:textSize="24sp"
+            android:paddingRight="50dp"
+            android:paddingLeft="20dp"
+            android:paddingBottom="5dp"
+            android:layout_gravity="end"
+            android:id="@+id/sendText"
+            />
+
+        <TextView
+            android:id="@+id/send_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/sendbackground"
+            android:gravity="bottom"
+            android:textColor="#9F000000"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:src="@drawable/singlevbluetick"
+            android:id="@+id/onetick"/>
+
+        <ImageView
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:src="@drawable/doubletick"
+            android:id="@+id/twotick"/>
+    </LinearLayout>
 
 
-
-        />
 
 </LinearLayout>

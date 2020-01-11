@@ -6,7 +6,8 @@ public class FirebaseConstants {
         public static String key = "User";
         public static String email = "email";
         public static  String address="address";
-        public static  String user="user";
+        public static  String user="User";
+
         public static   String number="number";
         public static  String image="image";
     }
@@ -16,6 +17,9 @@ public class FirebaseConstants {
         public static String status = "status";
         public static String message = "message";
         public static String type = "type";
+        public static String tap = "key";
+        public static String time_stemp = "time_stemp";
+
 
         public static enum  Type{
             RECEIVE,SEND

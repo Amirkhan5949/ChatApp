@@ -1,17 +1,22 @@
-package com.example.debuapp.utils;
+package com.example.debuapp.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.debuapp.Activities.ChatActivity;
 import com.example.debuapp.R;
-import com.google.firebase.auth.FirebaseAuth;
+import com.example.debuapp.utils.FirebaseConstants;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +33,6 @@ public class Chatadapter extends RecyclerView.Adapter<Chatadapter.ChatViewHolder
 
     public Chatadapter(List<String> list, Context context){
         this.context=context;
-
         this.list = list;
     }
     @NonNull
@@ -42,9 +46,14 @@ public class Chatadapter extends RecyclerView.Adapter<Chatadapter.ChatViewHolder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final ChatViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final ChatViewHolder holder, final int position) {
 
-        String id = list.get(position);
+
+
+
+
+        final String id = list.get(position);
+
 
         FirebaseDatabase.getInstance().getReference()
                 .child("User")
@@ -52,8 +61,15 @@ public class Chatadapter extends RecyclerView.Adapter<Chatadapter.ChatViewHolder
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        String s="User Name :"+dataSnapshot.child("user").getValue().toString();
+                        String s="User Name :"+dataSnapshot.child(FirebaseConstants.User.user).getValue().toString();
                         holder.username.setText(s);
+
+
+
+
+                        String a=dataSnapshot.child(FirebaseConstants.User.image).getValue().toString();
+                        Picasso.get().load(a).into(holder.imageView);
+                        Log.i("asaddd", "onDataChange: "+a);
 
 
                     }
@@ -63,6 +79,17 @@ public class Chatadapter extends RecyclerView.Adapter<Chatadapter.ChatViewHolder
 
                     }
                 });
+
+        holder.layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(context, ChatActivity.class);
+                intent.putExtra("id",id);
+                context.startActivity(intent);
+
+
+            }
+        });
 
     }
 
@@ -74,6 +101,7 @@ public class Chatadapter extends RecyclerView.Adapter<Chatadapter.ChatViewHolder
     class ChatViewHolder extends RecyclerView.ViewHolder {
         CircleImageView imageView;
         TextView username,status;
+        LinearLayout layout;
 
         public ChatViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -81,6 +109,10 @@ public class Chatadapter extends RecyclerView.Adapter<Chatadapter.ChatViewHolder
             imageView=itemView.findViewById(R.id.png);
             username=itemView.findViewById(R.id.username);
             status=itemView.findViewById(R.id.status);
+            layout=itemView.findViewById(R.id.layout);
         }
     }
+
+
+
 }

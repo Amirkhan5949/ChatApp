@@ -10,7 +10,10 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.core.view.GravityCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 
 import android.os.Environment;
@@ -68,12 +71,21 @@ public class ProfileFragment extends Fragment {
    ImagePicker imagePicker;
    private TextView number,name,email,address;
    DatabaseReference User;
+   String main_id;
+   FragmentManager fragmentManager;
 
 
 
     public ProfileFragment() {
         // Required empty public constructor
     }
+
+    public  ProfileFragment(String id){
+
+       this.main_id = id;
+    }
+
+
 
 
     @Override
@@ -126,11 +138,11 @@ public class ProfileFragment extends Fragment {
                             public void onClick(View view) {
                                 dialog.dismiss();
                                 Map<String,Object>map=new HashMap<>();
-                                map.put(FirebaseConstants.User.user,name.getText().toString());
+                                map.put(FirebaseConstants.User.key,name.getText().toString());
 
                                 FirebaseDatabase.getInstance().getReference()
                                         .child("User")
-                                        .child(FirebaseAuth.getInstance().getUid())
+                                        .child(main_id)
                                         .updateChildren(map).
                                         addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override
@@ -177,7 +189,7 @@ public class ProfileFragment extends Fragment {
 
                                                  FirebaseDatabase.getInstance().getReference()
                                                          .child("User")
-                                                         .child(FirebaseAuth.getInstance().getUid())
+                                                         .child(main_id)
                                                          .updateChildren(map).addOnCompleteListener(new OnCompleteListener<Void>() {
                                                      @Override
                                                      public void onComplete(@NonNull Task<Void> task) {
@@ -222,7 +234,7 @@ public class ProfileFragment extends Fragment {
 
                         FirebaseDatabase.getInstance().getReference()
                                 .child("User")
-                                .child(FirebaseAuth.getInstance().getUid())
+                                .child(main_id)
                                 .updateChildren(map).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
@@ -235,6 +247,7 @@ public class ProfileFragment extends Fragment {
                 dialog.show();
             }
         });
+
 
         Log.i("nhnnhnghghn", ": done ");
 
@@ -382,7 +395,7 @@ public class ProfileFragment extends Fragment {
                         map.put(FirebaseConstants.User.image,uri.toString());
 
 
-                        FirebaseDatabase.getInstance().getReference().child(FirebaseConstants.User.user).child(FirebaseAuth.getInstance().getUid())
+                        FirebaseDatabase.getInstance().getReference().child(FirebaseConstants.User.key).child(FirebaseAuth.getInstance().getUid())
                                 .updateChildren(map).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
@@ -409,15 +422,18 @@ public class ProfileFragment extends Fragment {
     private void  getuserinfo(){
         User=FirebaseDatabase.getInstance().getReference().child("User");
 
-        User.child(FirebaseAuth.getInstance().getUid())
+        User.child(main_id)
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         String numberm= "Number :"+dataSnapshot.child(FirebaseConstants.User.number).getValue(String.class);
                         number.setText(numberm);
+                        Log.i("gjgj", "onDataChange: "+number);
 
-                        String user="User Name :"+dataSnapshot.child(FirebaseConstants.User.user).getValue(String.class);
+                        String user="User Name :"+dataSnapshot.child(FirebaseConstants.User.key).getValue(String.class);
+                        Log.i("gjgj", "onDataChange: "+user);
                         name.setText(user);
+
 
                         String email_s="Email :"+dataSnapshot.child(FirebaseConstants.User.email).getValue(String.class);
                         email.setText(email_s);
@@ -438,4 +454,8 @@ public class ProfileFragment extends Fragment {
                 });
     }
 
-}
+
+    }
+
+
+

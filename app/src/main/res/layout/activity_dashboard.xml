@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/drawerlayout"
-    tools:context=".Dashboardactivity">
+    tools:context=".Activities.Dashboardactivity">
 
     <FrameLayout
         android:layout_width="match_parent"

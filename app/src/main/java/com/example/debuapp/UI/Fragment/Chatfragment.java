@@ -7,10 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.Model.Username;
 import com.example.debuapp.R;
-import com.example.debuapp.Useradapter;
-import com.example.debuapp.utils.Chatadapter;
+import com.example.debuapp.Adapters.Chatadapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -53,11 +51,6 @@ public class Chatfragment extends Fragment {
       view=inflater.inflate(R.layout.fragment_chat, container, false);
       recyclerView=view.findViewById(R.id.recycler);
       recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
-        FirebaseRecyclerOptions<Username> options =
-                new FirebaseRecyclerOptions.Builder<Username>()
-                .setQuery(FirebaseDatabase.getInstance().getReference().child("Username"),Username.class)
-                .build();
 
 
 
