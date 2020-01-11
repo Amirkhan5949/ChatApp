@@ -44,8 +44,7 @@ public class ChatActivity extends AppCompatActivity {
         recycler=findViewById(R.id.recycler);
         final DatabaseReference base =FirebaseDatabase.getInstance().getReference().child(FirebaseConstants.Message.key);
         final String s=getIntent().getStringExtra("id");
-        final DatabaseReference ourMessage = base.child(FirebaseAuth.getInstance().getUid()).child(s).push();
-        final String pushId = ourMessage.getKey();
+
 
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
@@ -59,7 +58,7 @@ public class ChatActivity extends AppCompatActivity {
                         .setQuery(query, Message.class)
                         .build();
 
-        adapter=new MessageAdapter(this,options,s,pushId);
+        adapter=new MessageAdapter(this,options,s);
         recycler.setAdapter(adapter);
 
 

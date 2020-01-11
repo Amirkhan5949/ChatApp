@@ -30,7 +30,6 @@ import androidx.recyclerview.widget.RecyclerView;
 public class MessageAdapter extends FirebaseRecyclerAdapter<Message, MessageAdapter.MessageViewHolder>{
     Context context;
     String id;
-    String pushId;
 
     /**
      * Initialize a {@link RecyclerView.Adapter} that listens to a Firebase query. See
@@ -39,11 +38,11 @@ public class MessageAdapter extends FirebaseRecyclerAdapter<Message, MessageAdap
      * @param context
      * @param options
      */
-    public MessageAdapter(Context context, @NonNull FirebaseRecyclerOptions<Message> options,String id,String pushId) {
+    public MessageAdapter(Context context, @NonNull FirebaseRecyclerOptions<Message> options,String id) {
         super(options);
         this.context=context;
         this.id = id;
-        this.pushId=pushId;
+
     }
 
     @Override
