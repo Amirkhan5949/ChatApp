@@ -72,7 +72,7 @@ public class Chatfragment extends Fragment {
                         Log.i("showdata", "onDataChange: "+list1.toString());
 
 
-                        Chatadapter chatadapter=new Chatadapter(list1,getContext());
+                        Chatadapter chatadapter=new Chatadapter(list1,getContext(),getFragmentManager());
                         recyclerView.setAdapter(chatadapter);
 
                     }

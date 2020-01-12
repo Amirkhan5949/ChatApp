@@ -3,7 +3,7 @@ package com.example.Model;
 public class User {
     String address;
     String email;
-    String user;
+    String User;
     String image;
 
     public User() {
@@ -14,7 +14,7 @@ public class User {
         return "User{" +
                 "address='" + address + '\'' +
                 ", email='" + email + '\'' +
-                ", user='" + user + '\'' +
+                ", User='" + User + '\'' +
                 ", image='" + image + '\'' +
                 '}';
     }
@@ -36,11 +36,11 @@ public class User {
     }
 
     public String getUser() {
-        return user;
+        return User;
     }
 
     public void setUser(String user) {
-        this.user = user;
+        this.User = user;
     }
 
     public String getImage() {

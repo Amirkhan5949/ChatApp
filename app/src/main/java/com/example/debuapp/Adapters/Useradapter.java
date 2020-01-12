@@ -2,6 +2,7 @@ package com.example.debuapp.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,8 +18,14 @@ import com.example.Model.User;
 import com.example.debuapp.Activities.ChatActivity;
 import com.example.debuapp.R;
 import com.example.debuapp.UI.Fragment.ProfileFragment;
+import com.example.debuapp.utils.FirebaseConstants;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.ViewHolder;
 import com.squareup.picasso.Picasso;
@@ -48,8 +55,12 @@ public class Useradapter extends FirebaseRecyclerAdapter<User, Useradapter.Userv
 
     @Override
     protected void onBindViewHolder(@NonNull final UserviewHolder holder, final int position, @NonNull final User user) {
+
+        Log.i("frfrg", "onBindViewHolder: "+user.toString());
+
+
         final String s = user.getImage();
-        holder.address.setText(user.getAddress());
+        holder.address.setText(user.getUser());
         holder.email.setText(user.getEmail());
         Picasso.get().load(s).into(holder.circleImageView);
         holder.circleImageView.setOnClickListener(new View.OnClickListener() {
@@ -68,11 +79,12 @@ public class Useradapter extends FirebaseRecyclerAdapter<User, Useradapter.Userv
 
                 Picasso.get().load(s).into(imageView);
 
-                TextView text = layout.findViewById(R.id.text);
+                final TextView text = layout.findViewById(R.id.text);
                 ImageView info = layout.findViewById(R.id.info);
 
 
                 text.setText(user.getUser());
+
 
                 info.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -94,6 +106,7 @@ public class Useradapter extends FirebaseRecyclerAdapter<User, Useradapter.Userv
                     }
                 });
 
+                getRef(position).getKey().toString();
 
                 dialog.show();
 

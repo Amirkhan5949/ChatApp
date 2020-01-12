@@ -6,7 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.airbnb.lottie.L;
 import com.example.debuapp.R;
+import com.example.debuapp.utils.Loader;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {

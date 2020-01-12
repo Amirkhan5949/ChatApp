@@ -27,6 +27,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.debuapp.R;
 import com.example.debuapp.utils.FirebaseConstants;
@@ -83,6 +84,9 @@ public class ProfileFragment extends Fragment {
     public  ProfileFragment(String id){
 
        this.main_id = id;
+
+
+
     }
 
 
@@ -248,6 +252,22 @@ public class ProfileFragment extends Fragment {
             }
         });
 
+        if (main_id.equals(FirebaseAuth.getInstance().getUid())){
+            edit.setVisibility(View.VISIBLE);
+            editname.setVisibility(View.VISIBLE);
+            editemail.setVisibility(View.VISIBLE);
+            editadd.setVisibility(View.VISIBLE);
+
+
+
+        }
+        else {
+            edit.setVisibility(View.GONE);
+            editname.setVisibility(View.GONE);
+            editemail.setVisibility(View.GONE);
+            editadd.setVisibility(View.GONE);
+        }
+
 
         Log.i("nhnnhnghghn", ": done ");
 
@@ -291,6 +311,8 @@ public class ProfileFragment extends Fragment {
 
         return view;
     }
+
+
 
     private  Uri getTempUri(){
 
@@ -453,6 +475,9 @@ public class ProfileFragment extends Fragment {
                     }
                 });
     }
+
+
+
 
 
     }

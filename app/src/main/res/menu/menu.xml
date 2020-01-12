@@ -3,20 +3,28 @@
  <item
      android:id="@+id/chat"
      android:icon="@drawable/chat"
-     android:title="Chat"/>
+     android:title="@string/chat"/>
 
     <item
-        android:title="All Users"
+        android:title="@string/all_users"
         android:icon="@drawable/user"
         android:id="@+id/user"/>
 
     <item
         android:id="@+id/image"
-        android:title="@string/image_picker"
-        android:icon="@drawable/image"/>
+        android:title="@string/profile"
+        android:icon="@drawable/person"/>
 
     <item
         android:id="@+id/logout"
-        android:title="logout"
+        android:title="@string/log"
         android:icon="@drawable/power"/>
+    <item
+        android:id="@+id/share"
+        android:title="@string/share"
+        android:icon="@drawable/share"/>
+    <item
+        android:id="@+id/rate"
+        android:title="Rate"
+        android:icon="@drawable/rate"/>
 </menu>

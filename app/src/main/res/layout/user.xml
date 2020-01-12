@@ -3,7 +3,7 @@
     android:id="@+id/linear"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:layout_margin="20dp"
+    android:layout_margin="10dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -18,7 +18,6 @@
             android:layout_width="56dp"
             android:layout_height="56dp"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="14dp"
             android:src="@drawable/login" />
 
         <LinearLayout

@@ -33,4 +33,9 @@
     <string name="type">type</string>
     <string name="sttus">Status :</string>
     <string name="usrnme">Username :</string>
+    <string name="profile">Profile</string>
+    <string name="all_users">All Users</string>
+    <string name="log">logout</string>
+    <string name="chat">Chat</string>
+    <string name="share">Share</string>
 </resources>
