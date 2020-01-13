@@ -28,6 +28,7 @@
             android:src="@drawable/logo" />
 
         <com.airbnb.lottie.LottieAnimationView
+            android:layout_marginTop="40dp"
             android:layout_width="256dp"
             android:layout_height="256dp"
             app:lottie_autoPlay="true"

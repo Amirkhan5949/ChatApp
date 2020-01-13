@@ -31,6 +31,7 @@ public class MessageAdapter extends FirebaseRecyclerAdapter<Message, MessageAdap
     Context context;
     String id;
 
+
     /**
      * Initialize a {@link RecyclerView.Adapter} that listens to a Firebase query. See
      * {@link FirebaseRecyclerOptions} for configuration options.
@@ -56,6 +57,10 @@ public class MessageAdapter extends FirebaseRecyclerAdapter<Message, MessageAdap
 
             holder.sendText.setText(model.getMessage());
             holder.send_Time.setText(dateString);
+
+
+
+
 
             holder.recieve.setVisibility(View.GONE);
             holder.send.setVisibility(View.VISIBLE);

@@ -26,12 +26,13 @@
 
 
         <TextView
+            android:layout_weight="1"
             android:background="@drawable/recievebackground"
             android:layout_margin="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/recieveText"
-            android:text="Anas"
+            android:text=""
             android:paddingLeft="20dp"
             android:paddingRight="50dp"
             android:paddingBottom="5dp"
@@ -54,11 +55,12 @@
         android:layout_gravity="right">
 
         <TextView
+            android:layout_weight="1"
             android:background="@drawable/sendbackground"
             android:layout_margin="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Aamir"
+            android:text=""
             android:textColor="#9F000000"
             android:textSize="24sp"
             android:paddingRight="50dp"
@@ -69,6 +71,7 @@
             />
 
         <TextView
+            android:text=""
             android:id="@+id/send_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -80,6 +83,7 @@
             android:textSize="14sp" />
 
         <ImageView
+            android:visibility="gone"
             android:layout_width="26dp"
             android:layout_height="26dp"
             android:src="@drawable/singlevbluetick"

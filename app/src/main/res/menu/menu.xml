@@ -15,10 +15,7 @@
         android:title="@string/profile"
         android:icon="@drawable/person"/>
 
-    <item
-        android:id="@+id/logout"
-        android:title="@string/log"
-        android:icon="@drawable/power"/>
+
     <item
         android:id="@+id/share"
         android:title="@string/share"
@@ -27,4 +24,9 @@
         android:id="@+id/rate"
         android:title="Rate"
         android:icon="@drawable/rate"/>
+
+   <item
+       android:id="@+id/logout"
+       android:title="@string/log"
+       android:icon="@drawable/power"/>
 </menu>
