@@ -2,6 +2,15 @@
 ChatApp gives you a environment where we can socailly connect with each other we can communicate with the help of chat app
 
 In this project, I will use Android with  FireBase,layout,Picasso,Firebase Authenticatin....
+
+# Demo of ChatApp
+
+ <a style="margin:20;padding:0" href="https://www.youtube.com/watch?v=OiChInXzjhA">
+  <img src="https://raw.githubusercontent.com/mayankkasera/Movie-Stack/master/media/youtube.png" width="200" >
+ </a>
+
+  <img width="200px"   src="https://github.com/Amirkhan5949/ChatApp/blob/master/app/src/main/gif/gif.gif"></br>
+
  
 App Features: 
 
